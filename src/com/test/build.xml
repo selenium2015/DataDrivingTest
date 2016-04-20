@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project name="DataDrivingTest"  basedir=".">
+ <!--  定义变量property  -->
+ <property name="lib.dir" value="D:\workspace\DataDrivingTest\lib" />
+   
+  <path id="test.classpath">
+         <!-- adding the saxon jar to your classpath -->
+        <fileset dir="${lib.dir}" includes="*.jar"/>
+  </path>
+
+    <target name="transform">
+        <xslt in="D:/workspace/DataDrivingTest/test-output/testng-results.xml" style="D:/workspace/DataDrivingTest/test-output/testng-results.xsl"
+              out="D:/workspace/DataDrivingTest/test-output/index.html">
+             <!-- you need to specify the directory here again -->
+            <param name="testNgXslt.outputDir" expression="D:/workspace/DataDrivingTest/test-output/"/>
+            <classpath refid="test.classpath"/>
+        </xslt>
+ 		</target>
+ 
+</project>
